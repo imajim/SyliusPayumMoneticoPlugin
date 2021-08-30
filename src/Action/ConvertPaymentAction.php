@@ -82,9 +82,9 @@ final class ConvertPaymentAction implements ActionInterface, GatewayAwareInterfa
             $model->offsetSet('context', $this->contextProvider->getContext($payment));
         }
 
-        if (false === $model->offsetExists('protocole')) {
+        if (false === $model->offsetExists('protocole') && $this->protocolProvider->getProtocol($payment)) {
             $model->offsetSet('protocole', $this->protocolProvider->getProtocol($payment));
-        } elseif (false === $model->offsetExists('desactivemoyenpaiement')) {
+        } else {
             $model->offsetSet('desactivemoyenpaiement', $this->protocolProvider->getDesactiveMoyenPaiement($payment));
         }
 
