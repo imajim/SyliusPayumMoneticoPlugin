@@ -5,7 +5,7 @@
   "license": "MIT",
   "require": {
     "sylius/sylius": "^1.5",
-    "ekyna/payum-monetico": "^1.5"
+    "ekyna/payum-monetico": "dev-imajim-patch"
   },
   "require-dev": {
     "ext-json": "*",
@@ -75,5 +75,11 @@
     "post-create-project-cmd": [
       "php bin/create_node_symlink.php"
     ]
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/imajim/PayumMonetico"
+    }
+  ]
 }
